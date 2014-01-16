@@ -1,5 +1,5 @@
 package crap;
-$crap::VERSION = '0.04';
+$crap::VERSION = '0.06';
 #ABSTRACT: just don't take any
 
 use strict;
@@ -10,14 +10,14 @@ my $hawt;
 sub import {
   warnings->unimport();
   strict->unimport();
-  $hawt = $|;
+  $hawt = $| if defined $|;
   $|=1;
 }
 
 sub unimport {
   strict->import();
   warnings->import();
-  $|=$hawt;
+  $|=$hawt if defined $hawt;
 }
 
 q[for when it hits the fan];
@@ -34,7 +34,7 @@ crap - just don't take any
 
 =head1 VERSION
 
-version 0.04
+version 0.06
 
 =head1 SYNOPSIS
 

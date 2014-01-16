@@ -20,4 +20,7 @@ requires:
   perl: v5.6.0
   strict: 0
   warnings: 0
-version: 0.04
+resources:
+  homepage: https://github.com/bingos/crap
+  repository: https://github.com/bingos/crap.git
+version: 0.06

@@ -43,6 +43,14 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.04"
+   "resources" : {
+      "homepage" : "https://github.com/bingos/crap",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/bingos/crap.git",
+         "web" : "https://github.com/bingos/crap"
+      }
+   },
+   "version" : "0.06"
 }
 
