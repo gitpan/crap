@@ -1,28 +1,32 @@
 package crap;
-{
-  $crap::VERSION = '0.02';
-}
-
+$crap::VERSION = '0.04';
 #ABSTRACT: just don't take any
 
 use strict;
 use warnings;
 
+my $hawt;
+
 sub import {
   warnings->unimport();
   strict->unimport();
+  $hawt = $|;
+  $|=1;
 }
 
 sub unimport {
   strict->import();
   warnings->import();
+  $|=$hawt;
 }
 
 q[for when it hits the fan];
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -30,7 +34,7 @@ crap - just don't take any
 
 =head1 VERSION
 
-version 0.02
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -50,9 +54,12 @@ version 0.02
 
 Enables L<strict> and L<warnings> without all the typing.
 
+It also makes C<STDOUT> 'hot' turning off buffering.
+
 To enable just type C<no crap> in your script.
 
-C<use crap> disables L<strict> and L<warnings>.
+C<use crap> disables L<strict> and L<warnings> and restores
+previous settings to C<STDOUT> bufferingness.
 
 =begin Pod::Coverage
 
@@ -68,10 +75,9 @@ Chris Williams <chris@bingosnet.co.uk>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Chris Williams.
+This software is copyright (c) 2014 by Chris Williams.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
